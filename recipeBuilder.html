@@ -7,17 +7,20 @@
 </head>
 <body>
     <h1>🥞🥨🍸🍼🥑Recipe Keeper 🌯🥪🥩🍱🍧</h1>
-    <div>
+    <div id="addRecipeBlock">
     <h2>Add Recipe⬇️</h2>
-    <form>
+    <form id="recipe-form">
         <label for="recipeName">Recipe Name</label>
-        <input type="text" id="recipeName" name="recipeName" required>
+        <input type="text" id="recipe-name" name="recipeName" required>
         
         <label for="ingredients">Ingredients</label>
         <textarea id="ingredients" name="ingredients" placeholder="List ingredients separated by commas" required></textarea>
         
         <label for="steps">Steps for Preparation</label>
         <textarea id="steps" name="steps" placeholder="Steps for preparation" required></textarea>
+
+        <label for="recipeImage">Recipe Image URL:</label>
+        <input type="url" id="recipeImage" name="recipeImage" placeholder="http://example.com/my-dish.jpg">
         
         <button type="submit">Add Recipe</button>
     </form>
@@ -25,7 +28,7 @@
 
     <h2>Your Recipes</h2>
 
-    <div></div>
+    <div id="display-area"></div>
 
 
     <script src="scripts.js"></script>

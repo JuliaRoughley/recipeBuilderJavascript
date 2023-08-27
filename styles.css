@@ -1,43 +1,46 @@
 /* styles.css */
 
 /* Reset some default margin and padding for better spacing */
-body, h1, h2, form {
+body, h1, h2, form, div {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width */
 }
 
 /* Center the h1 title horizontally and vertically */
 h1 {
     text-align: center;
-    line-height: 80vh; /* Adjust the line-height for a bit less space */
+    line-height: 80vh;
     margin: 0;
     font-family: "Helvetica", "Arial", sans-serif;
-    font-size: 2.5rem; /* Slightly smaller font size */
+    font-size: 2.5rem;
     color: fuchsia;
 }
 
 /* Style the addRecipeBlock */
 #addRecipeBlock {
-    width: 50%; /* Set width to 50% of the page */
-    margin: 20px;
+    width: 100%; /* Take full width on mobile */
+    max-width: 600px; /* Limit width on larger screens */
+    margin: 20px auto;
     padding: 20px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    float: left; /* Align to the left */
+    float: none; /* Remove float for responsive behavior */
 }
 
 /* Restyle form elements within addRecipeBlock */
 #addRecipeBlock form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
+    align-items: flex-start;
 }
 
 #addRecipeBlock label {
     font-weight: bold;
-    margin-bottom: 5px;
-    font-size: 1.2rem; /* Bigger font size for labels */
+    margin-right: auto; 
+    margin-bottom: 3%;
+    font-size: 1.2rem;
 }
 
 #addRecipeBlock input[type="text"], #addRecipeBlock textarea {
@@ -47,8 +50,8 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #f5f5f5;
-    transition: border-color 0.3s ease; /* Add transition for visual feedback */
-    font-size: 1.2rem; /* Bigger font size for input fields */
+    transition: border-color 0.3s ease;
+    font-size: 1.2rem;
 }
 
 #addRecipeBlock input[type="text"]:focus, #addRecipeBlock textarea:focus {
@@ -64,6 +67,7 @@ h1 {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px; /* Add margin for spacing */
 }
 
 #addRecipeBlock button[type="submit"]:hover {
@@ -73,11 +77,13 @@ h1 {
 /* Bigger font size for h2 */
 h2 {
     font-size: 2rem;
+    margin: 10px;
 }
 
-#recipeDisplay {
+/* Style the div for displaying recipes */
+#display-area {
     clear: both; /* Clear the float */
-    margin: 20px;
+    margin: 20px auto;
     padding: 20px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
