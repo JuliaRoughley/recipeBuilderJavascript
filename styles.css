@@ -1,0 +1,85 @@
+/* styles.css */
+
+/* Reset some default margin and padding for better spacing */
+body, h1, h2, form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Center the h1 title horizontally and vertically */
+h1 {
+    text-align: center;
+    line-height: 80vh; /* Adjust the line-height for a bit less space */
+    margin: 0;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 2.5rem; /* Slightly smaller font size */
+    color: fuchsia;
+}
+
+/* Style the addRecipeBlock */
+#addRecipeBlock {
+    width: 50%; /* Set width to 50% of the page */
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    float: left; /* Align to the left */
+}
+
+/* Restyle form elements within addRecipeBlock */
+#addRecipeBlock form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+}
+
+#addRecipeBlock label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.2rem; /* Bigger font size for labels */
+}
+
+#addRecipeBlock input[type="text"], #addRecipeBlock textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    transition: border-color 0.3s ease; /* Add transition for visual feedback */
+    font-size: 1.2rem; /* Bigger font size for input fields */
+}
+
+#addRecipeBlock input[type="text"]:focus, #addRecipeBlock textarea:focus {
+    outline: none;
+    border-color: fuchsia;
+}
+
+#addRecipeBlock button[type="submit"] {
+    background-color: fuchsia;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addRecipeBlock button[type="submit"]:hover {
+    background-color: #d000a0;
+}
+
+/* Bigger font size for h2 */
+h2 {
+    font-size: 2rem;
+}
+
+#recipeDisplay {
+    clear: both; /* Clear the float */
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
