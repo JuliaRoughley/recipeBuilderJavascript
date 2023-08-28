@@ -5,7 +5,7 @@
     <title>Recipe Builder</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body>  
     <h1>🥞🥨🍸🍼🥑Recipe Keeper 🌯🥪🥩🍱🍧</h1>
     <div id="addRecipeBlock">
     <h2>Add Recipe⬇️</h2>
@@ -26,9 +26,29 @@
     </form>
 </div>
 
-    <h2>Your Recipes</h2>
+    <h2 id="title">Your Recipes</h2>
 
-    <div id="display-area"></div>
+    <div id="display-area">
+        <!-- Inside the displayRecipe function -->
+    <form id="edit-form" style="display: none;">
+        <label for="editRecipeName">Recipe Name</label>
+        <input type="text" id="editRecipeName" name="editRecipeName" required>
+
+        <label for="editIngredients">Ingredients</label>
+        <textarea id="editIngredients" name="editIngredients" required></textarea>
+
+        <label for="editSteps">Steps for Preparation</label>
+        <textarea id="editSteps" name="editSteps" required></textarea>
+
+        <label for="editImageUrl">Image URL</label>
+        <input type="url" id="editImageUrl" name="editImageUrl">
+
+        <button type="submit">Save Changes</button>
+    </form>
+    <div id="recipes-list"></div>
+
+
+    </div>
 
 
     <script src="scripts.js"></script>
