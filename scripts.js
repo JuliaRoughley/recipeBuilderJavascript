@@ -56,42 +56,54 @@ if (localStorage.getItem('recipes')) {
 
 
 function displayRecipe(recipe) {
-    let recipeDiv = document.createElement('div'); //creating a new div element for the new recipe to be displayed in
+    let recipeDiv = document.createElement('div');
+    recipeDiv.className = 'recipe-card';
 
-    let recipeHTML = `
-    <h3>${recipe.name}</h3>
-    <p><strong>Ingredients:</strong> ${recipe.ingredients}</p>
-    <p><strong>Steps:</strong> ${recipe.steps}`;
+    let recipeContent = document.createElement('div');
+    recipeContent.className = 'recipe-content';
 
-    // Add the image if an image URL is provided
+    let recipeName = document.createElement('h3');
+    recipeName.textContent = recipe.name;
+
+    let ingredientsPara = document.createElement('p');
+    ingredientsPara.innerHTML = `<strong>Ingredients:</strong> ${recipe.ingredients}`;
+
+    let stepsPara = document.createElement('p');
+    stepsPara.innerHTML = `<strong>Steps:</strong> ${recipe.steps}`;
+
+    recipeContent.appendChild(recipeName);
+    recipeContent.appendChild(ingredientsPara);
+    recipeContent.appendChild(stepsPara);
+
     if (recipe.image) {
-        recipeHTML += `<img src="${recipe.image}" alt="Picture of ${recipe.name}">`;
+        let recipeImageDiv = document.createElement('div');
+        recipeImageDiv.className = 'recipe-image';
+
+        let recipeImage = document.createElement('img');
+        recipeImage.src = recipe.image;
+        recipeImage.alt = `Picture of ${recipe.name}`;
+
+        recipeImageDiv.appendChild(recipeImage);
+        recipeContent.appendChild(recipeImageDiv);
     }
 
-    recipeHTML += `</p>`;
     let deleteButton = document.createElement('button');
-    deleteButton.textContent = "Delete Recipe";
-    let index = recipes.indexOf(recipe);
+    deleteButton.textContent = 'Delete Recipe';
     deleteButton.onclick = function () {
-        deleteRecipe(index);
+        deleteRecipe(recipes.indexOf(recipe));
     };
-
-
 
     let editButton = document.createElement('button');
-    editButton.textContent = "Edit Recipe";
+    editButton.textContent = 'Edit Recipe';
     editButton.onclick = function () {
-        switchToEditMode(recipe, index);
+        switchToEditMode(recipe, recipes.indexOf(recipe));
     };
 
-    // Set the HTML content of the div
-    recipeDiv.innerHTML = recipeHTML;
-
-    // Append the delete button to the recipe div
+    recipeDiv.appendChild(recipeContent);
     recipeDiv.appendChild(editButton);
     recipeDiv.appendChild(deleteButton);
 
-    recipeDiv.dataset.recipeIndex = index;
+    recipeDiv.dataset.recipeIndex = recipes.indexOf(recipe);
 
     displayArea.appendChild(recipeDiv);
 }
